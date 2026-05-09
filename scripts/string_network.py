@@ -73,8 +73,36 @@ net = Network(
 net.from_nx(G)
 
 for node in net.nodes:
-    node["color"] = "red"
-    node["size"] = 20
+    gene = node["id"]
+
+    mutation_count = int(
+        gene_counts.get(gene, 0)
+    )
+
+    # Node size based on mutation frequency
+    node["size"] = max(20, mutation_count / 5)
+
+    # Color hub genes differently
+    if mutation_count > 150:
+        node["color"] = "red"
+    elif mutation_count > 100:
+        node["color"] = "orange"
+    else:
+        node["color"] = "skyblue"
+
+    # Interactive tooltip
+    node["title"] = f"""
+    <h3>{gene}</h3>
+
+    <b>Mutation Count:</b> {mutation_count}<br>
+
+    <b>Biological Interpretation:</b><br>
+
+    This gene participates in ovarian cancer-associated
+    molecular interaction networks and may contribute
+    to tumor progression, pathway dysregulation,
+    or biomarker potential.
+    """
 
 net.save_graph("../output/string_tcga_network.html")
 

@@ -42,6 +42,14 @@ def load_data():
 df = load_data()
 
 # =========================
+# MUTATION COUNTS
+# =========================
+
+gene_counts = df["Hugo_Symbol"].value_counts()
+
+top_genes = gene_counts.head(15)
+
+# =========================
 # DATASET OVERVIEW
 # =========================
 
@@ -96,14 +104,18 @@ elif section == "AI Predictions":
 
     st.success("AI-based prioritization completed successfully.")
 
-   
-   
-    # =========================
+ 
+# =========================
 # INTERACTIVE NETWORK
 # =========================
 
 elif section == "Interactive Network":
 
+components.html(
+    html_data,
+    height=800,
+    scrolling=True
+)
     st.title("Interactive STRING Network")
 
     st.write(
@@ -123,3 +135,51 @@ elif section == "Interactive Network":
         height=800,
         scrolling=True
     )
+
+st.markdown("""
+## Biological Interpretation of the STRING Network
+
+### Key Observations
+
+- Large red nodes represent highly mutated ovarian cancer-associated hub genes.
+- Highly connected genes may function as master regulators in tumor progression.
+- Dense interaction regions indicate coordinated oncogenic pathway activity.
+- TP53-centered interactions suggest disruption of DNA repair and apoptosis pathways.
+- BRCA-associated interactions indicate genomic instability mechanisms.
+
+### Systems Biology Interpretation
+
+This interaction network demonstrates how ovarian cancer progression involves interconnected molecular signaling pathways rather than isolated gene mutations.
+
+Genes with high connectivity and mutation frequency may serve as:
+
+- candidate biomarkers
+- therapeutic targets
+- prognostic indicators
+- pathway regulators
+
+### Network Medicine Relevance
+
+The network supports systems oncology analysis by identifying biologically important interaction hubs potentially involved in:
+
+- tumor proliferation
+- metastasis
+- genomic instability
+- pathway dysregulation
+- treatment resistance
+            
+---
+## Data Sources and Scientific Resources
+
+- TCGA Ovarian Cancer Dataset accessed via cBioPortal
+- STRING Protein Interaction Database
+- Cytoscape Network Analysis Platform
+
+### References
+
+Cerami et al., *The cBio Cancer Genomics Portal: An Open Platform for Exploring Multidimensional Cancer Genomics Data*, Cancer Discovery (2012).
+
+Gao et al., *Integrative Analysis of Complex Cancer Genomics and Clinical Profiles Using the cBioPortal*, Science Signaling (2013).
+
+Szklarczyk et al., *STRING v11: Protein–Protein Association Networks with Increased Coverage*, Nucleic Acids Research (2019).
+""")
