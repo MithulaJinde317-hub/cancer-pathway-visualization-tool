@@ -45,7 +45,7 @@ df = load_data()
 # MUTATION COUNTS
 # =========================
 
-gene_counts = df["Hugo_Symbol"].value_counts()
+gene_counts = df["Gene"].value_counts()
 
 top_genes = gene_counts.head(15)
 
