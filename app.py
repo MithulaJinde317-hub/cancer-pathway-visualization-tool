@@ -109,18 +109,15 @@ elif section == "AI Predictions":
 # INTERACTIVE NETWORK
 # =========================
 
-# =========================
-# INTERACTIVE NETWORK
-# =========================
-
 elif section == "Interactive Network":
 
     st.title("Interactive STRING Network")
 
     st.write(
-        "Interactive ovarian cancer protein interaction network."
+        "Interactive ovarian cancer protein interaction network generated using STRING database."
     )
 
+    # Load HTML network
     with open(
         "output/string_tcga_network.html",
         "r",
@@ -129,11 +126,16 @@ elif section == "Interactive Network":
 
         html_data = f.read()
 
+    # Display interactive network
     components.html(
         html_data,
         height=800,
         scrolling=True
     )
+
+    # =========================
+    # BIOLOGICAL INTERPRETATION
+    # =========================
 
     st.markdown("""
     ---
@@ -153,41 +155,46 @@ elif section == "Interactive Network":
 
     Genes with high connectivity and mutation frequency may serve as:
 
-    - candidate biomarkers
-    - therapeutic targets
-    - prognostic indicators
-    - pathway regulators
+    - Candidate biomarkers
+    - Therapeutic targets
+    - Prognostic indicators
+    - Pathway regulators
 
     ### Network Medicine Relevance
 
     The network supports systems oncology analysis by identifying biologically important interaction hubs potentially involved in:
 
-    - tumor proliferation
-    - metastasis
-    - genomic instability
-    - pathway dysregulation
-    - treatment resistance
+    - Tumor proliferation
+    - Metastasis
+    - Genomic instability
+    - Pathway dysregulation
+    - Treatment resistance
 
     ---
     ## Scientific Data Sources
 
-    - TCGA ovarian cancer dataset via cBioPortal
+    This project integrates publicly available cancer genomics and systems biology resources including:
+
+    - TCGA ovarian cancer mutation datasets via cBioPortal
     - STRING protein interaction database
-    - Cytoscape systems biology platform
+    - Cytoscape systems biology analysis platform
+
+    ---
+    ## References
+
+    1. Cerami E, Gao J, Dogrusoz U, et al.
+       The cBio Cancer Genomics Portal: An Open Platform for Exploring Multidimensional Cancer Genomics Data.
+       Cancer Discovery. 2012.
+
+    2. Gao J, Aksoy BA, Dogrusoz U, et al.
+       Integrative Analysis of Complex Cancer Genomics and Clinical Profiles Using the cBioPortal.
+       Science Signaling. 2013.
+
+    3. Szklarczyk D, Gable AL, Lyon D, et al.
+       STRING v11: Protein–Protein Association Networks with Increased Coverage.
+       Nucleic Acids Research. 2019.
+
+    4. Shannon P, Markiel A, Ozier O, et al.
+       Cytoscape: A Software Environment for Integrated Models of Biomolecular Interaction Networks.
+       Genome Research. 2003.
     """)
-
-## Scientific Data Sources
-
-This project integrates publicly available cancer genomics and systems biology resources including:
-
-- TCGA ovarian cancer mutation datasets via cBioPortal
-- STRING protein interaction database
-- Cytoscape systems biology analysis
-
-## References
-
-1. Cerami E, Gao J, Dogrusoz U, et al. The cBio Cancer Genomics Portal: An Open Platform for Exploring Multidimensional Cancer Genomics Data. Cancer Discovery. 2012.
-
-2. Gao J, Aksoy BA, Dogrusoz U, et al. Integrative Analysis of Complex Cancer Genomics and Clinical Profiles Using the cBioPortal. Science Signaling. 2013.
-
-3. Szklarczyk D, Gable AL, Lyon D, et al. STRING v11: Protein Protein Association Networks with Increased Coverage. Nucleic Acids Research. 2019.
