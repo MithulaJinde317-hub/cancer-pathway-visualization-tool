@@ -176,3 +176,18 @@ elif section == "Interactive Network":
     - Cytoscape systems biology platform
     """)
 
+## Scientific Data Sources
+
+This project integrates publicly available cancer genomics and systems biology resources including:
+
+- TCGA ovarian cancer mutation datasets via cBioPortal
+- STRING protein interaction database
+- Cytoscape systems biology analysis
+
+## References
+
+1. Cerami E, Gao J, Dogrusoz U, et al. The cBio Cancer Genomics Portal: An Open Platform for Exploring Multidimensional Cancer Genomics Data. Cancer Discovery. 2012.
+
+2. Gao J, Aksoy BA, Dogrusoz U, et al. Integrative Analysis of Complex Cancer Genomics and Clinical Profiles Using the cBioPortal. Science Signaling. 2013.
+
+3. Szklarczyk D, Gable AL, Lyon D, et al. STRING v11: Protein–Protein Association Networks with Increased Coverage. Nucleic Acids Research. 2019.
