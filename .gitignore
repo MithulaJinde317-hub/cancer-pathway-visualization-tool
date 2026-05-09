@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+
+output/
+*.html
+*.graphml
+*.cys
+
+tcga_data/
+*.tar.gz
+
+.DS_Store
