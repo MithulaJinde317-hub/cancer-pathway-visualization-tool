@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -22,7 +23,8 @@ section = st.sidebar.radio(
     [
         "Dataset Overview",
         "Mutation Analysis",
-        "AI Predictions"
+        "AI Predictions",
+        "Interactive Network"
     ]
 )
 
@@ -93,3 +95,31 @@ elif section == "AI Predictions":
     st.dataframe(df)
 
     st.success("AI-based prioritization completed successfully.")
+
+   
+   
+    # =========================
+# INTERACTIVE NETWORK
+# =========================
+
+elif section == "Interactive Network":
+
+    st.title("Interactive STRING Network")
+
+    st.write(
+        "Interactive ovarian cancer protein interaction network."
+    )
+
+    with open(
+        "output/string_tcga_network.html",
+        "r",
+        encoding="utf-8"
+    ) as f:
+
+        html_data = f.read()
+
+    components.html(
+        html_data,
+        height=800,
+        scrolling=True
+    )
