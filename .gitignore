@@ -1,12 +1,7 @@
 venv/
+tcga_data/
 __pycache__/
 *.pyc
-
-output/
 *.graphml
 *.cys
-
-tcga_data/
 *.tar.gz
-
-.DS_Store
