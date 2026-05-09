@@ -3,7 +3,6 @@ __pycache__/
 *.pyc
 
 output/
-*.html
 *.graphml
 *.cys
 
