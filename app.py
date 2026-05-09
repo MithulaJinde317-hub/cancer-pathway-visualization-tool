@@ -190,4 +190,4 @@ This project integrates publicly available cancer genomics and systems biology r
 
 2. Gao J, Aksoy BA, Dogrusoz U, et al. Integrative Analysis of Complex Cancer Genomics and Clinical Profiles Using the cBioPortal. Science Signaling. 2013.
 
-3. Szklarczyk D, Gable AL, Lyon D, et al. STRING v11: Protein–Protein Association Networks with Increased Coverage. Nucleic Acids Research. 2019.
+3. Szklarczyk D, Gable AL, Lyon D, et al. STRING v11: Protein Protein Association Networks with Increased Coverage. Nucleic Acids Research. 2019.
