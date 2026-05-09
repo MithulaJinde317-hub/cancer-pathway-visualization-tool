@@ -1,5 +1,5 @@
 # Cancer Pathway Visualization Tool
-author:Mithula J
+Author:Mithula J
 
 ## Overview
 
