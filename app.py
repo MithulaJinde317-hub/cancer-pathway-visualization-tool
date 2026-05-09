@@ -27,32 +27,17 @@ section = st.sidebar.radio(
 )
 
 # =========================
-# LOAD DATA
+# LOAD SAMPLE DATA
 # =========================
-
-file_path = "tcga_data/ov_tcga_pan_can_atlas_2018/ov_tcga_pan_can_atlas_2018/data_mutations.txt"
 
 @st.cache_data
 def load_data():
 
-    df = pd.read_csv(
-        file_path,
-        sep="\t",
-        comment="#",
-        low_memory=False
-    )
+    df = pd.read_csv("sample_data.csv")
 
     return df
 
 df = load_data()
-
-# =========================
-# MUTATION COUNTS
-# =========================
-
-gene_counts = df["Hugo_Symbol"].value_counts()
-
-top_genes = gene_counts.head(15)
 
 # =========================
 # DATASET OVERVIEW
@@ -62,13 +47,13 @@ if section == "Dataset Overview":
 
     st.title("Cancer Pathway Visualization Tool")
 
-    st.subheader("TCGA Ovarian Cancer Dataset")
+    st.subheader("Ovarian Cancer Mutation Dataset")
 
     st.write("Dataset Shape:")
     st.write(df.shape)
 
     st.write("Dataset Preview:")
-    st.dataframe(df.head())
+    st.dataframe(df)
 
 # =========================
 # MUTATION ANALYSIS
@@ -80,7 +65,7 @@ elif section == "Mutation Analysis":
 
     fig, ax = plt.subplots(figsize=(12, 6))
 
-    top_genes.plot(kind="bar", ax=ax)
+    ax.bar(df["Gene"], df["Mutation_Count"])
 
     ax.set_title("Top Mutated Ovarian Cancer Genes")
     ax.set_xlabel("Genes")
@@ -90,10 +75,6 @@ elif section == "Mutation Analysis":
 
     st.pyplot(fig)
 
-    st.write("Top Mutated Genes")
-
-    st.dataframe(top_genes)
-
 # =========================
 # AI PREDICTIONS
 # =========================
@@ -102,18 +83,13 @@ elif section == "AI Predictions":
 
     st.title("AI-Based Biomarker Prioritization")
 
-    prediction_df = pd.DataFrame({
-        "Gene": top_genes.index,
-        "Mutation_Count": top_genes.values
-    })
-
-    prediction_df["Predicted_Risk"] = [
+    df["Predicted_Risk"] = [
         "High Risk"
-        if x > prediction_df["Mutation_Count"].median()
+        if x > df["Mutation_Count"].median()
         else "Moderate Risk"
-        for x in prediction_df["Mutation_Count"]
+        for x in df["Mutation_Count"]
     ]
 
-    st.dataframe(prediction_df)
+    st.dataframe(df)
 
     st.success("AI-based prioritization completed successfully.")
