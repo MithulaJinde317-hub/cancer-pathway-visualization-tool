@@ -109,13 +109,12 @@ elif section == "AI Predictions":
 # INTERACTIVE NETWORK
 # =========================
 
+# =========================
+# INTERACTIVE NETWORK
+# =========================
+
 elif section == "Interactive Network":
 
-components.html(
-    html_data,
-    height=800,
-    scrolling=True
-)
     st.title("Interactive STRING Network")
 
     st.write(
@@ -136,50 +135,44 @@ components.html(
         scrolling=True
     )
 
-st.markdown("""
-## Biological Interpretation of the STRING Network
+    st.markdown("""
+    ---
+    ## Biological Interpretation of the STRING Network
 
-### Key Observations
+    ### Key Observations
 
-- Large red nodes represent highly mutated ovarian cancer-associated hub genes.
-- Highly connected genes may function as master regulators in tumor progression.
-- Dense interaction regions indicate coordinated oncogenic pathway activity.
-- TP53-centered interactions suggest disruption of DNA repair and apoptosis pathways.
-- BRCA-associated interactions indicate genomic instability mechanisms.
+    - Large red nodes represent highly mutated ovarian cancer-associated hub genes.
+    - Highly connected genes may function as master regulators in tumor progression.
+    - Dense interaction regions indicate coordinated oncogenic pathway activity.
+    - TP53-centered interactions suggest disruption of DNA repair and apoptosis pathways.
+    - BRCA-associated interactions indicate genomic instability mechanisms.
 
-### Systems Biology Interpretation
+    ### Systems Biology Interpretation
 
-This interaction network demonstrates how ovarian cancer progression involves interconnected molecular signaling pathways rather than isolated gene mutations.
+    This interaction network demonstrates how ovarian cancer progression involves interconnected molecular signaling pathways rather than isolated gene mutations.
 
-Genes with high connectivity and mutation frequency may serve as:
+    Genes with high connectivity and mutation frequency may serve as:
 
-- candidate biomarkers
-- therapeutic targets
-- prognostic indicators
-- pathway regulators
+    - candidate biomarkers
+    - therapeutic targets
+    - prognostic indicators
+    - pathway regulators
 
-### Network Medicine Relevance
+    ### Network Medicine Relevance
 
-The network supports systems oncology analysis by identifying biologically important interaction hubs potentially involved in:
+    The network supports systems oncology analysis by identifying biologically important interaction hubs potentially involved in:
 
-- tumor proliferation
-- metastasis
-- genomic instability
-- pathway dysregulation
-- treatment resistance
-            
----
-## Data Sources and Scientific Resources
+    - tumor proliferation
+    - metastasis
+    - genomic instability
+    - pathway dysregulation
+    - treatment resistance
 
-- TCGA Ovarian Cancer Dataset accessed via cBioPortal
-- STRING Protein Interaction Database
-- Cytoscape Network Analysis Platform
+    ---
+    ## Scientific Data Sources
 
-### References
+    - TCGA ovarian cancer dataset via cBioPortal
+    - STRING protein interaction database
+    - Cytoscape systems biology platform
+    """)
 
-Cerami et al., *The cBio Cancer Genomics Portal: An Open Platform for Exploring Multidimensional Cancer Genomics Data*, Cancer Discovery (2012).
-
-Gao et al., *Integrative Analysis of Complex Cancer Genomics and Clinical Profiles Using the cBioPortal*, Science Signaling (2013).
-
-Szklarczyk et al., *STRING v11: Protein–Protein Association Networks with Increased Coverage*, Nucleic Acids Research (2019).
-""")
